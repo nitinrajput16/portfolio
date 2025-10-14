@@ -235,53 +235,5 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			}
 		}
-
-		// Contact form handler (frontend only)
-		const contactForm = document.getElementById('contact-form');
-		if (contactForm) {
-			const submitBtn = contactForm.querySelector('button[type="submit"]');
-			contactForm.addEventListener('submit', async (e) => {
-				e.preventDefault();
-				const status = document.getElementById('contact-status');
-
-				// Disable button and show loading state
-				if (submitBtn) {
-					submitBtn.disabled = true;
-					submitBtn.textContent = 'Sending...';
-				}
-
-				status.textContent = 'Sending...';
-				const formData = new FormData(contactForm);
-				const payload = {};
-				for (const [k, v] of formData.entries()) payload[k] = v;
-
-				try {
-					// Attempt to POST to backend endpoint /contact
-					const res = await fetch('/contact', {
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify(payload),
-					});
-					if (res.ok) {
-						status.textContent = 'Message sent — thank you!';
-						status.style.color = 'var(--accent-2)';
-						contactForm.reset();
-					} else {
-						const text = await res.text();
-						status.textContent = 'Error sending message: ' + text;
-						status.style.color = 'var(--accent-1)';
-					}
-				} catch (err) {
-					status.textContent = 'Failed to send message. (No backend configured)';
-					status.style.color = 'var(--accent-1)';
-					console.error(err);
-				} finally {
-					// Re-enable button
-					if (submitBtn) {
-						submitBtn.disabled = false;
-						submitBtn.textContent = 'Send Message';
-					}
-				}
-			});
-		}
+		
 });
