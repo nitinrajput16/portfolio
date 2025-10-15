@@ -8,7 +8,7 @@
     <title>Nitin Singh — Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
+<script src="https://kit.fontawesome.com/4edb3588d0.js" crossorigin="anonymous"></script>
 <body>
     <header>
         <nav class="site-nav" aria-label="Main navigation">
@@ -49,7 +49,7 @@
             <h2>About Me</h2>
             <div class="about-layout">
                 <div class="about-content">
-                    <p>I'm Nitin Singh, a Computer Science student passionate about full-stack development and creating
+                    <p>I'm Nitin Singh, a Computer Science student passionate about full-stack development, software development, and creating
                         interactive user experiences. I enjoy learning new technologies and solving challenging coding
                         problems.</p>
                     <p>I have experience building web apps with Node.js, Express, and modern frontend frameworks. My
@@ -135,59 +135,77 @@
             <div class="project-grid">
                 <article class="project">
                     <h3>Collaborative Code Editor</h3>
-                    <p>
-                        • Enabled multiple users to code, debug, and review projects simultaneously with live
-                        synchronization.<br>
-                        • Designed an efficient system for tracking changes, allowing users to revert to previous
-                        versions and merge edits seamlessly.<br>
-                        • Supports multiple programming languages with real-time compilation and execution.<br>
-                        • Tech stack: Socket.io, Node.js, Monaco-editor, MongoDB.
-                    </p>
-                    <p><a class="link" href="https://github.com/nitinrajput16/test.git">🔗 View on GitHub</a> • <a
-                            class="link" href="https://codeplat.onrender.com">🌐 Live Demo</a></p>
+                    <div class="project-summary">
+                        <span>Enabled multiple users to code, debug, and review projects simultaneously.</span>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                    <div class="project-details" style="display:none;">
+                        <p>
+                            • Enabled multiple users to code, debug, and review projects simultaneously with live synchronization.<br>
+                            • Designed an efficient system for tracking changes, allowing users to revert to previous versions and merge edits seamlessly.<br>
+                            • Supports multiple programming languages with real-time compilation and execution.<br>
+                            • Tech stack: Socket.io, Node.js, Monaco-editor, MongoDB.
+                        </p>
+                        <button class="read-more-btn">Show Less</button>
+                        <p><a class="link" href="https://github.com/nitinrajput16/test.git">🔗 View on GitHub</a> • <a
+                                class="link" href="https://codeplat.onrender.com">🌐 Live Demo</a></p>
+                    </div>
                 </article>
 
                 <article class="project">
                     <h3>Portfolio Website</h3>
-                    <p>
-                        • Developed a responsive and visually engaging personal portfolio to showcase projects and
-                        technical skills.<br>
-                        • Implemented smooth scroll animations and interactive UI elements using GSAP for an enhanced
-                        user experience.<br>
-                        • Integrated backend with Node.js and Express.js to manage contact forms and project data
-                        efficiently.<br>
-                        • Deployed the website with Git and GitHub for version control and project management.<br>
-                        • Tech stack: HTML5, CSS3, JavaScript, Node.js, Express.js, MongoDB, GSAP, Git, GitHub.
-                    </p>
-                    <p><a class="link" href="#">🔗 View on GitHub</a></p>
+                    <div class="project-summary">
+                        <span>Responsive and visually engaging personal portfolio to showcase projects and technical skills.</span>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                    <div class="project-details" style="display:none;">
+                        <p>
+                            • Developed a responsive and visually engaging personal portfolio to showcase projects and technical skills.<br>
+                            • Implemented smooth scroll animations and interactive UI elements using GSAP for an enhanced user experience.<br>
+                            • Integrated backend with Node.js and Express.js to manage contact forms and project data efficiently.<br>
+                            • Deployed the website with Git and GitHub for version control and project management.<br>
+                            • Tech stack: HTML5, CSS3, JavaScript, Node.js, Express.js, MongoDB, GSAP, Git, GitHub.
+                        </p>
+                        <button class="read-more-btn">Show Less</button>
+                        <p><a class="link" href="#">🔗 View on GitHub</a></p>
+                    </div>
                 </article>
 
                 <article class="project">
                     <h3>Exam Platform (Demo)</h3>
-                    <p> • Built a secure and scalable web platform for conducting online exams with real-time assessment
-                        and result generation.<br>
-                        • Implemented question randomization, timer functionality, and automatic evaluation for
-                        objective-type tests.<br>
-                        • Added autosave during exams, live monitoring for proctoring, and role-based access control for
-                        admins, teachers, and students.<br>
-                        • Designed an intuitive dashboard for managing questions, results, and performance
-                        analytics.<br>
-                        • Tech Stack: Node.js, Express.js, MongoDB, HTML5, CSS3, JavaScript. </p>
-                    <p><a class="link" href="https://github.com/nitinrajput16/testplat.git">🔗 View on GitHub</a> • <a
-                            class="link" href="https://testplat-8cjw.onrender.com">🌐 Live Demo</a></p>
+                    <div class="project-summary">
+                        <span>Secure and scalable web platform for online exams with real-time assessment.</span>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                    <div class="project-details" style="display:none;">
+                        <p>
+                            • Built a secure and scalable web platform for conducting online exams with real-time assessment and result generation.<br>
+                            • Implemented question randomization, timer functionality, and automatic evaluation for objective-type tests.<br>
+                            • Added autosave during exams, live monitoring for proctoring, and role-based access control for admins, teachers, and students.<br>
+                            • Designed an intuitive dashboard for managing questions, results, and performance analytics.<br>
+                            • Tech Stack: Node.js, Express.js, MongoDB, HTML5, CSS3, JavaScript.
+                        </p>
+                        <button class="read-more-btn">Show Less</button>
+                        <p><a class="link" href="https://github.com/nitinrajput16/testplat.git">🔗 View on GitHub</a> • <a class="link" href="https://testplat-8cjw.onrender.com">🌐 Live Demo</a></p>
+                    </div>
                 </article>
                 <article class="project">
                     <h3>LinkedIn Tango Game</h3>
-                    <p>
-                        • Designed and developed an interactive web-based game using HTML, CSS, and JavaScript.<br>
-                        • Built core game mechanics involving keyboard controls, collision detection, and real-time
-                        score updates.<br>
-                        • Implemented clean UI/UX for smooth user interaction and engaging gameplay.<br>
-                        • Focused on responsive design principles to ensure seamless play across devices.<br>
-                        • Tech stack: JS canvas, HTML, CSS.
-                    </p>
-                    <p><a class="link" href="https://github.com/nitinrajput16/tango.git">🔗 View on GitHub</a> • <a
-                            class="link" href="https://tango-o02w.onrender.com">🌐 Live Demo</a></p>
+                    <div class="project-summary">
+                        <span>Interactive web-based game with keyboard controls and real-time score updates.</span>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                    <div class="project-details" style="display:none;">
+                        <p>
+                            • Designed and developed an interactive web-based game using HTML, CSS, and JavaScript.<br>
+                            • Built core game mechanics involving keyboard controls, collision detection, and real-time score updates.<br>
+                            • Implemented clean UI/UX for smooth user interaction and engaging gameplay.<br>
+                            • Focused on responsive design principles to ensure seamless play across devices.<br>
+                            • Tech stack: JS canvas, HTML, CSS.
+                        </p>
+                        <button class="read-more-btn">Show Less</button>
+                        <p><a class="link" href="https://github.com/nitinrajput16/tango.git">🔗 View on GitHub</a> • <a class="link" href="https://tango-o02w.onrender.com">🌐 Live Demo</a></p>
+                    </div>
                 </article>
             </div>
         </section>
@@ -224,14 +242,18 @@
         <!-- Contact -->
         <section id="contact" class="container section-surface contact">
             <h2>Contact</h2>
-            <p>If you'd like to get in touch, email me at <a href="mailto:nr750001@gmail.com">nr750001@gmail.com</a></p>
+            <p>If you'd like to get in touch, email me at: <i class="fa-brands fa-google"></i> <a href="mailto:nr750001@gmail.com">nr750001@gmail.com</a></p>
+            <p>LinkedIn: <i class="fa-brands fa-square-linkedin"></i><a href="https://www.linkedin.com/in/nitinrajput16/">LinkedIn</a></p>
+            <p>GitHub: <i class="fa-brands fa-github"></i><a href="https://github.com/nitinrajput16">GitHub</a></p>
+            <p>Leetcode: <img class="leetcode" src="https://img.icons8.com/?size=100&id=9L16NypUzu38&format=png&color=000000" alt=""></i><a href="https://leetcode.com/nitinrajput16/">Leetcode</a></p>
+            <p>WhatsApp: <i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/9760858044">9760858044</a></p>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container">
             <p>© 2025 Nitin Singh. All rights reserved.</p>
-            <p>Built with ❤️ using HTML, CSS, JS, and Node.js</p>
+            <p>Built with ❤️ using HTML, CSS and JS</p>
         </div>
     </footer>
 

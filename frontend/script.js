@@ -39,6 +39,28 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
+	// Read More toggle for projects
+	function toggleProjectDetails(btn) {
+    const project = btn.closest('.project');
+    const details = project.querySelector('.project-details');
+    const summary = project.querySelector('.project-summary');
+    if (details.style.display === 'none') {
+        details.style.display = 'block';
+        summary.style.display = 'none';
+    } else {
+        details.style.display = 'none';
+        summary.style.display = 'block';
+    }
+}
+
+// Attach event listeners to all read-more buttons
+const readMoreBtns = document.querySelectorAll('.read-more-btn');
+readMoreBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        toggleProjectDetails(this);
+    });
+});
+
 		// Hero enhancements: badge, gradient last-words, caret
 		const heroContent = document.querySelector('.hero-content');
 		if (heroContent) {
