@@ -1,326 +1,314 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html class="dark" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portfolio of Nitin Singh — Full Stack Developer">
-    <title>Nitin Singh — Portfolio</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Portfolio of Nitin Singh — Software Engineer & Full Stack Developer">
+    <title>Nitin Singh | Senior Software Engineer</title>
+
+    <!-- Google Fonts: Inter and Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+          theme: {
+            extend: {
+              colors: {
+                primary: '#0d59f2',
+                dark: '#0a0a0a',
+                surface: '#121212',
+                border: '#262626'
+              },
+              fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                serif: ['Playfair Display', 'serif'],
+              },
+              borderRadius: {
+                'custom': '8px',
+              }
+            }
+          }
+        }
+    </script>
+
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4edb3588d0.js" crossorigin="anonymous"></script>
 </head>
-<script src="https://kit.fontawesome.com/4edb3588d0.js" crossorigin="anonymous"></script>
-<body>
-    <header>
-        <nav class="site-nav" aria-label="Main navigation">
-            <div class="container nav-inner">
-                <a class="logo" href="#home">Portfolio</a>
-                <div class="nav-actions">
-                    <button id="navToggle" class="nav-toggle" aria-expanded="false"
-                        aria-controls="primary-menu">Menu</button>
+
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 nav-blur bg-dark/80" data-purpose="main-navigation">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-white flex items-center justify-center rounded-custom overflow-hidden">
+                    <svg class="w-5 h-5 fill-black" viewbox="0 0 100 100">
+                        <polygon points="50,15 90,85 10,85"></polygon>
+                    </svg>
                 </div>
-                <ul id="primary-menu" class="nav-links" role="menu">
-                    <li role="none"><a role="menuitem" href="#home">Home</a></li>
-                    <li role="none"><a role="menuitem" href="#about">About</a></li>
-                    <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
-                    <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
-                    <li role="none"><a role="menuitem" href="#resume">Resume</a></li>
-                    <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
-                </ul>
+                <span class="font-medium tracking-tight text-sm uppercase">Nitin Singh</span>
             </div>
-        </nav>
-    </header>
-
-    <main id="home">
-        <!-- Hero / Introduction -->
-        <section class="hero container">
-            <div class="hero-content">
-                <div class="eyebrow">
-                    <div class="badge"><span class="star" aria-hidden="true"></span><span>Available for Opportunities</span></div>
-                </div>
-                <h1>Hi, I'm Nitin Singh</h1>
-                <p class="lead">Software Engineer — Specializing in scalable full-stack applications and high-performance user experiences.</p>
-                <p class="cta-row">
-                    <a class="btn btn-primary" href="resumenitin.pdf" download>
-                        <i class="fa-solid fa-download"></i> Download Resume
-                    </a>
-                    <a class="btn btn-outline" href="#contact">
-                        <i class="fa-solid fa-envelope"></i> Contact Me
-                    </a>
-                </p>
+            <div class="hidden md:flex space-x-10 text-sm font-medium text-neutral-400">
+                <a class="hover:text-white transition-colors" href="#home">Home</a>
+                <a class="hover:text-white transition-colors" href="#works">Works</a>
+                <a class="hover:text-white transition-colors" href="#expertise">Expertise</a>
             </div>
-            <div class="hero-image" aria-hidden="true">
-                <img src="my_embedded.svg" alt="Profile illustration">
-            </div>
-        </section>
-
-        <!-- About Me -->
-        <section id="about" class="container section-surface about">
-            <h2>About Me</h2>
-            <div class="about-layout">
-                <div class="about-content">
-                    <p>I'm Nitin Singh, a Computer Science student passionate about full-stack development, software development, and creating
-                        interactive user experiences. I enjoy learning new technologies and solving challenging coding
-                        problems.</p>
-                    <p>I have experience building web apps with Node.js, Express, and modern frontend frameworks. My
-                        goal is to deliver accessible, performant, and beautiful user experiences.</p>
-                </div>
-                <div class="about-image">
-                    <div class="code-preview">
-                        <div class="code-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <div class="code-body">
-                            <pre><code><span class="keyword">function</span> <span class="function">collaborate</span>() {
-  <span class="keyword">const</span> editor = <span class="string">"Edit"</span>;
-  <span class="keyword">return</span> {
-    <span class="property">realtime</span>: <span class="boolean">true</span>,
-    <span class="property">ai</span>: <span class="string">"powered"</span>,
-    <span class="property">languages</span>: <span class="number">14</span>+
-  };
-}</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills" class="container section-surface skills-section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h3>Frontend</h3>
-                    <ul class="skills">
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>JavaScript</li>
-                        <li>GSAP</li>
-                        <li>Tailwind</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Backend</h3>
-                    <ul class="skills">
-                        <li>Node.js</li>
-                        <li>Express.js</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Database</h3>
-                    <ul class="skills">
-                        <li>MongoDB</li>
-                        <li>MongoDB Atlas</li>
-                        <li>MySQL</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Tools & Platforms</h3>
-                    <ul class="skills">
-                        <li>Linux</li>
-                        <li>Git</li>
-                        <li>GitHub</li>
-                        <li>VS Code</li>
-                        <li>Postman</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>languages</h3>
-                    <ul class="skills">
-                        <li>Python</li>
-                        <li>C</li>
-                        <li>C++</li>
-                        <li>JavaScript</li>
-                        <li>HTML/CSS</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" class="container section-surface projects">
-            <h2>Selected Projects</h2>
-            <div class="project-grid">
-                <article class="project">
-                    <div class="project-header">
-                        <h3>Collaborative Code Editor</h3>
-                        <div class="project-tags">
-                            <span>Socket.io</span><span>Node.js</span><span>Monaco-editor</span><span>MongoDB</span>
-                        </div>
-                    </div>
-                    <div class="project-summary">
-                        <span>Real-time collaborative coding platform supporting 2000+ daily active users.</span>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                    <div class="project-details" style="display:none;">
-                        <p>
-                            • <strong>Achievement:</strong> Successfully scaled to handle 1000-2000 active users daily with high performance.<br>
-                            • Enabled multiple users to code, debug, and review projects simultaneously with live synchronization.<br>
-                            • Designed an efficient system for tracking changes, allowing users to revert to previous versions and merge edits seamlessly.<br>
-                            • Supports multiple programming languages with real-time compilation and execution.
-                        </p>
-                        <button class="read-more-btn">Show Less</button>
-                        <div class="project-links">
-                            <a class="link" href="https://github.com/nitinrajput16/test.git">🔗 GitHub</a>
-                            <a class="link" href="https://codeplat.onrender.com">🌐 Live Demo</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <div class="project-header">
-                        <h3>Exam Platform</h3>
-                        <div class="project-tags">
-                            <span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JavaScript</span>
-                        </div>
-                    </div>
-                    <div class="project-summary">
-                        <span>Secure and scalable online exam system with real-time assessment and proctoring.</span>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                    <div class="project-details" style="display:none;">
-                        <p>
-                            • <strong>Achievement:</strong> Implemented robust auto-evaluation and live monitoring supporting 1000+ simultaneous test-takers.<br>
-                            • Built a secure and scalable web platform for conducting online exams with real-time result generation.<br>
-                            • Added autosave, live monitoring for proctoring, and role-based access control (Admin/Teacher/Student).<br>
-                            • Designed an intuitive dashboard for performance analytics.
-                        </p>
-                        <button class="read-more-btn">Show Less</button>
-                        <div class="project-links">
-                            <a class="link" href="https://github.com/nitinrajput16/testplat.git">🔗 GitHub</a>
-                            <a class="link" href="https://testplat-8cjw.onrender.com">🌐 Live Demo</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <div class="project-header">
-                        <h3>Portfolio Website</h3>
-                        <div class="project-tags">
-                            <span>GSAP</span><span>JavaScript</span><span>Node.js</span><span>CSS3</span>
-                        </div>
-                    </div>
-                    <div class="project-summary">
-                        <span>Visually engaging personal portfolio with high performance and interactive animations.</span>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                    <div class="project-details" style="display:none;">
-                        <p>
-                            • <strong>Achievement:</strong> Optimized for high performance and accessibility, featuring smooth GSAP animations.<br>
-                            • Developed a responsive and visually engaging personal portfolio to showcase projects and technical skills.<br>
-                            • Implemented smooth scroll animations and interactive UI elements for enhanced UX.<br>
-                            • Integrated backend with Node.js to manage contact forms and project data.
-                        </p>
-                        <button class="read-more-btn">Show Less</button>
-                        <div class="project-links">
-                            <a class="link" href="#">🔗 GitHub</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <div class="project-header">
-                        <h3>LinkedIn Tango Game</h3>
-                        <div class="project-tags">
-                            <span>JS Canvas</span><span>HTML5</span><span>CSS3</span>
-                        </div>
-                    </div>
-                    <div class="project-summary">
-                        <span>Interactive web-based game with real-time mechanics and responsive design.</span>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                    <div class="project-details" style="display:none;">
-                        <p>
-                            • <strong>Achievement:</strong> Built with zero external game engines, using pure JS Canvas for high-performance rendering.<br>
-                            • Designed and developed an interactive web-based game with core mechanics involving collision detection.<br>
-                            • Implemented real-time score updates and keyboard controls.<br>
-                            • Focused on responsive design principles for seamless play across devices.
-                        </p>
-                        <button class="read-more-btn">Show Less</button>
-                        <div class="project-links">
-                            <a class="link" href="https://github.com/nitinrajput16/tango.git">🔗 GitHub</a>
-                            <a class="link" href="https://tango-o02w.onrender.com">🌐 Live Demo</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Resume -->
-        <section id="resume" class="container section-surface resume">
-            <h2>Resume</h2>
-            <p><a class="btn" href="resumenitin.pdf" download>Download Resume (PDF)</a></p>
-            <br>
-            <br>
-            <div class="resume-summary">
-                <h3>Education</h3>
-                <div class="edu">
-                    <ul>
-                        <li>
-                            <p>GL Bajaj Group of Institutions B.Tech - Computer Science and Engineering </p>
-                            <p>2022-2026 (Expected)</p>
-                        </li>
-                        <li>
-                            <p>Central Board of Secondary Education 12th Standard (76%)</p>
-                            <p>2022</p>
-                        </li>
-                        <li>
-                            <p>Central Board of Secondary Education 10th Standard (80%)</p>
-                            <p>2020</p>
-                        </li>
-                    </ul>
-                </div>
-                <h3>Experience</h3>
-                <p>Freelance and academic projects building full-stack applications.</p>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="container section-surface contact">
-            <h2>Let's Connect</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fa-brands fa-google"></i>
-                    <h3>Email</h3>
-                    <p><a href="mailto:nr750001@gmail.com">nr750001@gmail.com</a></p>
-                </div>
-                <div class="contact-card">
-                    <i class="fa-brands fa-square-linkedin"></i>
-                    <h3>LinkedIn</h3>
-                    <p><a href="https://www.linkedin.com/in/nitinrajput16/">nitinrajput16</a></p>
-                </div>
-                <div class="contact-card">
-                    <i class="fa-brands fa-github"></i>
-                    <h3>GitHub</h3>
-                    <p><a href="https://github.com/nitinrajput16">nitinrajput16</a></p>
-                </div>
-                <div class="contact-card">
-                    <img class="leetcode-icon" src="https://img.icons8.com/?size=100&id=9L16NypUzu38&format=png&color=000000" alt="">
-                    <h3>Leetcode</h3>
-                    <p><a href="https://leetcode.com/nitinrajput16/">nitinrajput16</a></p>
-                </div>
-            </div>
-            <div class="contact-footer">
-                <p>Feel free to reach out for collaborations or just a friendly hello!</p>
-                <a class="btn btn-primary" href="https://wa.me/9760858044">
-                    <i class="fa-brands fa-whatsapp"></i> Message on WhatsApp
+            <div class="flex items-center space-x-4">
+                <a class="px-5 py-2 rounded-custom bg-white text-black text-sm font-semibold hover:bg-neutral-200 transition-all" href="#contact">
+                    Let's Talk
                 </a>
             </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 z-10">
+                    <div class="eyebrow mb-6">
+                        <div class="badge">
+                            <span class="star" aria-hidden="true"></span>
+                            <span>Available for Opportunities</span>
+                        </div>
+                    </div>
+                    <h1 class="text-6xl md:text-8xl serif-heading leading-tight mb-8">
+                        Crafting <span class="italic text-primary">digital</span> systems that scale.
+                    </h1>
+                    <p class="text-xl text-neutral-400 max-w-lg mb-10 leading-relaxed">
+                        Software Engineer specializing in building scalable full-stack applications and high-performance user experiences.
+                    </p>
+                    <div class="flex items-center space-x-6">
+                        <a class="flex items-center space-x-3 group" href="#works">
+                            <span class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span class="font-medium text-sm tracking-widest uppercase">View Portfolio</span>
+                        </a>
+                        <a class="text-sm font-medium tracking-widest uppercase border-b border-white/20 pb-1 hover:border-white transition-colors" href="resumenitin.pdf" download>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="aspect-square w-full bg-neutral-900 rounded-custom overflow-hidden border border-white/5 relative">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
+                        <img alt="Nitin Singh Portfolio" class="w-full h-full object-cover mix-blend-overlay opacity-60" src="my_embedded.svg"/>
+                        <div class="absolute bottom-8 left-8 p-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-custom">
+                            <div class="flex space-x-1 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                                <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-[10px] font-mono text-primary">system.init("innovation")</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- Selected Works -->
+        <section class="py-32 bg-surface" id="works">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
+                    <div>
+                        <span class="text-primary uppercase tracking-[0.2em] text-xs font-bold mb-4 block">Case Studies</span>
+                        <h2 class="text-4xl md:text-5xl serif-heading">Selected Works</h2>
+                    </div>
+                    <p class="text-neutral-500 max-w-xs mt-6 md:mt-0">
+                        A collection of projects where backend efficiency meets frontend elegance.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Project 1 -->
+                    <article class="project-card group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-custom aspect-[16/10] bg-neutral-900 border border-white/5 mb-6">
+                            <div class="flex items-center justify-center h-full w-full bg-neutral-800 text-neutral-500 italic">
+                                Collaborative Code Editor
+                            </div>
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <a href="https://codeplat.onrender.com" target="_blank" class="px-6 py-2 bg-white text-black font-semibold rounded-full text-sm">Live Demo</a>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-medium mb-1">Collaborative Code Editor</h3>
+                                <p class="text-neutral-500 text-sm">Socket.io • Node.js • Monaco Editor • 2024</p>
+                            </div>
+                            <a href="https://github.com/nitinrajput16/test.git" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-custom aspect-[16/10] bg-neutral-900 border border-white/5 mb-6">
+                            <div class="flex items-center justify-center h-full w-full bg-neutral-800 text-neutral-500 italic">
+                                Online Exam Platform
+                            </div>
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <a href="https://testplat-8cjw.onrender.com" target="_blank" class="px-6 py-2 bg-white text-black font-semibold rounded-full text-sm">Live Demo</a>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-medium mb-1">Exam Platform</h3>
+                                <p class="text-neutral-500 text-sm">Node.js • Express • MongoDB • 2023</p>
+                            </div>
+                            <a href="https://github.com/nitinrajput16/testplat.git" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-custom aspect-[16/10] bg-neutral-900 border border-white/5 mb-6">
+                            <div class="flex items-center justify-center h-full w-full bg-neutral-800 text-neutral-500 italic">
+                                LinkedIn Tango Game
+                            </div>
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <a href="https://tango-o02w.onrender.com" target="_blank" class="px-6 py-2 bg-white text-black font-semibold rounded-full text-sm">Live Demo</a>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-medium mb-1">Tango Game</h3>
+                                <p class="text-neutral-500 text-sm">JS Canvas • HTML5 • Game Engine Core • 2024</p>
+                            </div>
+                            <a href="https://github.com/nitinrajput16/tango.git" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="project-card group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-custom aspect-[16/10] bg-neutral-900 border border-white/5 mb-6">
+                            <div class="flex items-center justify-center h-full w-full bg-neutral-800 text-neutral-500 italic">
+                                Portfolio Website
+                            </div>
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="px-6 py-2 bg-white text-black font-semibold rounded-full text-sm">Current Project</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-medium mb-1">Portfolio v2</h3>
+                                <p class="text-neutral-500 text-sm">GSAP • Tailwind • Glassmorphism • 2025</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="py-32" id="expertise">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+                    <div>
+                        <span class="text-primary uppercase tracking-[0.2em] text-xs font-bold mb-4 block">Expertise</span>
+                        <h2 class="text-4xl md:text-5xl serif-heading mb-10 leading-tight">Bridging logic and aesthetics.</h2>
+                        <p class="text-neutral-400 text-lg leading-relaxed mb-12">
+                            I focus on creating high-performance digital solutions that solve real-world problems. My approach combines deep technical knowledge with a keen eye for user experience.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-surface border border-white/5 rounded-custom hover:border-primary/50 transition-colors">
+                                <h4 class="text-white font-semibold mb-2">Full Stack Development</h4>
+                                <p class="text-neutral-500 text-sm">Building robust backends with Node.js and interactive frontends with modern frameworks.</p>
+                            </div>
+                            <div class="p-6 bg-surface border border-white/5 rounded-custom hover:border-primary/50 transition-colors">
+                                <h4 class="text-white font-semibold mb-2">Systems Architecture</h4>
+                                <p class="text-neutral-500 text-sm">Designing scalable database schemas and API structures for high-traffic applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-12">
+                        <!-- Professional Journey -->
+                        <div>
+                            <h3 class="text-sm font-bold uppercase tracking-widest text-neutral-600 mb-8">Academic & Professional Journey</h3>
+                            <div class="border-l border-white/10 ml-4 space-y-10">
+                                <div class="relative pl-10">
+                                    <div class="timeline-dot active"></div>
+                                    <div class="text-sm text-neutral-500 mb-1">2022 — 2026 (Expected)</div>
+                                    <h4 class="text-lg font-medium text-white">B.Tech - Computer Science</h4>
+                                    <p class="text-neutral-400 text-sm">GL Bajaj Group of Institutions</p>
+                                </div>
+                                <div class="relative pl-10">
+                                    <div class="timeline-dot inactive"></div>
+                                    <div class="text-sm text-neutral-500 mb-1">2020 — 2022</div>
+                                    <h4 class="text-lg font-medium text-white">High School (CBSE)</h4>
+                                    <p class="text-neutral-400 text-sm">12th Standard - 76%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <div class="px-4 py-3 rounded-custom bg-surface border border-white/5 text-center text-xs font-medium text-neutral-400">Node.js / Express</div>
+                            <div class="px-4 py-3 rounded-custom bg-surface border border-white/5 text-center text-xs font-medium text-neutral-400">JavaScript / TS</div>
+                            <div class="px-4 py-3 rounded-custom bg-surface border border-white/5 text-center text-xs font-medium text-neutral-400">MongoDB / MySQL</div>
+                            <div class="px-4 py-3 rounded-custom bg-surface border border-white/5 text-center text-xs font-medium text-neutral-400">Tailwind CSS</div>
+                            <div class="px-4 py-3 rounded-custom bg-surface border border-white/5 text-center text-xs font-medium text-neutral-400">GSAP Animations</div>
+                            <div class="px-4 py-3 rounded-custom bg-surface border border-white/5 text-center text-xs font-medium text-neutral-400">C++ / Python</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer class="bg-surface pt-32 pb-16 border-t border-white/5" id="contact">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-32">
+                    <h2 class="text-5xl md:text-7xl serif-heading mb-12">Let's create something <br/><span class="italic text-primary">extraordinary</span>.</h2>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                        <a class="px-12 py-5 bg-white text-black font-bold rounded-custom hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1" href="mailto:nr750001@gmail.com">
+                            Email Me
+                        </a>
+                        <a class="px-12 py-5 border border-white/20 text-white font-bold rounded-custom hover:bg-white hover:text-black transition-all transform hover:-translate-y-1" href="https://wa.me/9760858044">
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center py-10 border-t border-white/5 text-neutral-500 text-sm">
+                    <div class="flex items-center space-x-6 mb-8 md:mb-0">
+                        <a class="hover:text-white transition-colors" href="https://github.com/nitinrajput16">GitHub</a>
+                        <a class="hover:text-white transition-colors" href="https://www.linkedin.com/in/nitinrajput16/">LinkedIn</a>
+                        <a class="hover:text-white transition-colors" href="https://leetcode.com/nitinrajput16/">Leetcode</a>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center md:space-x-8 space-y-4 md:space-y-0">
+                        <span>© 2025 Nitin Singh. All rights reserved.</span>
+                        <div class="flex space-x-4">
+                            <span class="text-[10px] opacity-30">Built with HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>© 2025 Nitin Singh. All rights reserved.</p>
-            <p>Built with ❤️ using HTML, CSS and JS</p>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Interactions Script -->
     <script src="script.js" defer></script>
 </body>
-
 </html>
