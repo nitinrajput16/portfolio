@@ -27,235 +27,109 @@ document.addEventListener('DOMContentLoaded', () => {
 				e.preventDefault();
 				const target = document.querySelector(href);
 				if (target) {
-					// Offset scroll position to account for fixed navbar
 					const nav = document.querySelector('nav.site-nav');
 					const offset = nav ? nav.offsetHeight : 0;
-					const targetTop = target.getBoundingClientRect().top + window.pageYOffset - offset;
-					window.scrollTo({ top: targetTop, behavior: 'smooth' });
-					// Focus the target after scrolling
-					setTimeout(() => target.focus({ preventScroll: true }), 600);
+
+					if (window.gsap && window.gsap.to) {
+						gsap.to(window, {
+							duration: 1,
+							scrollTo: { y: target, offsetY: offset },
+							ease: 'power3.inOut'
+						});
+					} else {
+						const targetTop = target.getBoundingClientRect().top + window.pageYOffset - offset;
+						window.scrollTo({ top: targetTop, behavior: 'smooth' });
+					}
+					history.pushState(null, null, href);
 				}
 			}
 		});
 	});
 
-	// Read More toggle for projects
-	function toggleProjectDetails(btn) {
-    const project = btn.closest('.project');
-    const details = project.querySelector('.project-details');
-    const summary = project.querySelector('.project-summary');
-    if (details.style.display === 'none') {
-        details.style.display = 'block';
-        summary.style.display = 'none';
-    } else {
-        details.style.display = 'none';
-        summary.style.display = 'block';
-    }
-}
+	// Project Read More toggle
+	const readMoreBtns = document.querySelectorAll('.read-more-btn');
+	readMoreBtns.forEach(btn => {
+		btn.addEventListener('click', function() {
+			const project = this.closest('.project');
+			const details = project.querySelector('.project-details');
+			const summary = project.querySelector('.project-summary');
+			const isExpanding = details.style.display === 'none';
 
-// Attach event listeners to all read-more buttons
-const readMoreBtns = document.querySelectorAll('.read-more-btn');
-readMoreBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        toggleProjectDetails(this);
-    });
-});
+			details.style.display = isExpanding ? 'block' : 'none';
+			summary.style.display = isExpanding ? 'none' : 'block';
+		});
+	});
 
-		// Hero enhancements: badge, gradient last-words, caret
-		const heroContent = document.querySelector('.hero-content');
-		if (heroContent) {
-			// Insert badge/eyebrow if not present
-			if (!heroContent.querySelector('.badge')) {
-				const badge = document.createElement('div');
-				badge.className = 'badge';
-				badge.innerHTML = '<span class="star" aria-hidden="true"></span><span>My Portfolio</span>';
-				const eyebrow = document.createElement('div');
-				eyebrow.className = 'eyebrow';
-				eyebrow.appendChild(badge);
-				heroContent.prepend(eyebrow);
-			}
-
-			// Transform hero heading: wrap last two words with gradient span and add caret
-			const h1 = heroContent.querySelector('h1');
-			if (h1) {
-				const text = h1.textContent.trim();
-				const parts = text.split(/\s+/);
-				if (parts.length >= 2) {
-					const lastTwo = parts.slice(-2).join(' ');
-					const rest = parts.slice(0, -2).join(' ');
-					h1.innerHTML = `${rest} <span class="gradient">${lastTwo}</span><span class="caret" aria-hidden="true"></span>`;
-					h1.classList.add('hero-title');
-				} else {
-					h1.classList.add('hero-title');
-				}
-			}
-
-			// Ensure there are two CTA buttons and the second has outline class
-			const ctaContainer = heroContent.querySelector('p');
-			if (ctaContainer) {
-				const ctas = ctaContainer.querySelectorAll('a.btn');
-				if (ctas.length === 1) {
-					// create a secondary outline button
-					const outline = document.createElement('a');
-					outline.href = '#contact';
-					outline.className = 'btn btn-outline';
-					outline.textContent = 'Start as Teacher';
-					ctaContainer.appendChild(outline);
-				} else if (ctas.length >= 2) {
-					ctas[1].classList.add('btn-outline');
-				}
-			}
-
-
-			// GSAP animations (if available)
-			function animateWithGSAP() {
-				console.log('animateWithGSAP called, gsap:', !!window.gsap, 'ScrollTrigger:', !!window.ScrollTrigger);
-				// register ScrollTrigger if available
-				if (gsap && gsap.registerPlugin && window.ScrollTrigger) {
-					gsap.registerPlugin(ScrollTrigger);
-				}
-
-				// entrance timeline for nav/logo -> badge -> hero
-				if (window.gsap) {
-					const entrance = gsap.timeline({ defaults: { ease: 'power3.out' } });
-					// nav/logo
-					entrance.fromTo('.nav-inner .logo', { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 });
-					entrance.fromTo('.nav-toggle', { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, '-=0.35');
-					// badge and hero
-					const badgeEl = heroContent.querySelector('.badge');
-					if (badgeEl) entrance.fromTo(badgeEl, { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.15');
-					entrance.fromTo('.hero-title', { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, '-=0.25');
-				}
-				// badge fade/slide
-				const badge = heroContent.querySelector('.badge');
-				const h1 = heroContent.querySelector('h1.hero-title');
-				const heroImage = document.querySelector('.hero-image');
-				const ctas = heroContent.querySelectorAll('.btn');
-
-				if (window.gsap) {
-					const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-					if (badge) tl.fromTo(badge, { y: -10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 });
-
-					// split hero title gradient text into words for stagger
-					if (h1) {
-						// split by spaces but keep spans intact
-						const gradientSpan = h1.querySelector('.gradient');
-						if (gradientSpan) {
-							// Keep gradient text visible without animation to ensure visibility
-						}
-					}
-
-					if (heroImage) tl.fromTo(heroImage, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.5');
-					if (ctas && ctas.length) tl.fromTo(ctas, { y: 8, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08, duration: 0.45 }, '-=0.4');
-
-					// caret pulse via GSAP
-					const caret = heroContent.querySelector('.caret');
-					if (caret) gsap.to(caret, { opacity: 0, repeat: -1, yoyo: true, duration: 0.8, ease: 'steps(2)' });
-
-					// nav open/close animation
-					if (navToggle && navLinks) {
-						navToggle.addEventListener('click', () => {
-							if (navLinks.classList.contains('open')) {
-								// animate open
-								gsap.fromTo(navLinks, { y: -10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 });
-							} else {
-								// animate close (quick fade)
-								gsap.to(navLinks, { opacity: 0, duration: 0.18 });
-							}
-						});
-					}
-
-					// ScrollTrigger animations for sections
-					if (window.ScrollTrigger) {
-						// simple reveal for sections
-						gsap.utils.toArray('.about, .projects, .contact').forEach(section => {
-							gsap.fromTo(section, 
-								{ y: 24, opacity: 0 }, 
-								{ 
-									y: 0, 
-									opacity: 1, 
-									duration: 0.7,
-									scrollTrigger: {
-										trigger: section,
-										start: 'top 80%',
-										toggleActions: 'play none none none'
-									}
-								}
-							);
-						});
-
-						// Animate code preview with typing effect
-						const codePreview = document.querySelector('.code-preview');
-						if (codePreview) {
-							gsap.fromTo(codePreview, 
-								{ y: 30, opacity: 0 }, 
-								{ 
-									y: 0, 
-									opacity: 1, 
-									duration: 0.8,
-									delay: 0.3,
-									scrollTrigger: {
-										trigger: codePreview,
-										start: 'top 85%',
-										toggleActions: 'play none none none'
-									}
-								}
-							);
-						}
-
-						// stagger projects
-						gsap.utils.toArray('.project-grid .project').forEach((proj, i) => {
-							gsap.fromTo(proj, 
-								{ y: 18, opacity: 0 }, 
-								{ 
-									y: 0, 
-									opacity: 1, 
-									duration: 0.9, 
-									delay: i * 0.06,
-									scrollTrigger: {
-										trigger: proj,
-										start: 'top 90%',
-									}
-								}
-							);
-						});
-					}
-				}
-			}
-
-			// run GSAP animations if available, otherwise simple CSS-based reveal
-			if (window.gsap) {
-				animateWithGSAP();
-				// Safety fallback: ensure elements are visible after 5 seconds in case animations fail
-				setTimeout(() => {
-					const badge = heroContent.querySelector('.badge');
-					const h1 = heroContent.querySelector('h1.hero-title');
-					const heroImage = document.querySelector('.hero-image');
-					const ctas = heroContent.querySelectorAll('.btn');
-
-					if (badge && getComputedStyle(badge).opacity === '0') badge.style.opacity = '1';
-					if (h1 && getComputedStyle(h1).opacity === '0') h1.style.opacity = '1';
-					if (heroImage && getComputedStyle(heroImage).opacity === '0') heroImage.style.opacity = '1';
-					if (ctas && ctas.length) {
-						ctas.forEach(btn => {
-							if (getComputedStyle(btn).opacity === '0') btn.style.opacity = '1';
-						});
-					}
-				}, 5000);
-			} else {
-				// basic fallback: ensure all elements are visible
-				const badge = heroContent.querySelector('.badge');
-				const h1 = heroContent.querySelector('h1.hero-title');
-				const heroImage = document.querySelector('.hero-image');
-				const ctas = heroContent.querySelectorAll('.btn');
-
-				if (badge) badge.style.opacity = '1';
-				if (h1) h1.style.opacity = '1';
-				if (heroImage) heroImage.style.opacity = '1';
-				if (ctas && ctas.length) {
-					ctas.forEach(btn => btn.style.opacity = '1');
-				}
+	// Hero Section Enhancement
+	const heroContent = document.querySelector('.hero-content');
+	if (heroContent) {
+		const h1 = heroContent.querySelector('h1');
+		if (h1) {
+			const text = h1.textContent.trim();
+			const parts = text.split(/\s+/);
+			if (parts.length >= 2) {
+				const lastTwo = parts.slice(-2).join(' ');
+				const rest = parts.slice(0, -2).join(' ');
+				h1.innerHTML = `${rest} <span class="gradient">${lastTwo}</span><span class="caret" aria-hidden="true"></span>`;
+				h1.classList.add('hero-title');
 			}
 		}
+
+		// Animations
+		if (window.gsap) {
+			const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+			// Entrance
+			tl.fromTo('.nav-inner .logo', { y: -10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 })
+			  .fromTo('.badge', { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.2')
+			  .fromTo('.hero-title', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, '-=0.3')
+			  .fromTo('.lead', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.4')
+			  .fromTo('.cta-row .btn', { y: 10, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.5 }, '-=0.4')
+			  .fromTo('.hero-image', { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 1 }, '-=0.8');
+
+			// Caret pulse
+			const caret = document.querySelector('.caret');
+			if (caret) gsap.to(caret, { opacity: 0, repeat: -1, yoyo: true, duration: 0.8 });
+
+			// ScrollTrigger Animations
+			if (window.ScrollTrigger) {
+				gsap.registerPlugin(ScrollTrigger);
+
+				// Reveal sections
+				gsap.utils.toArray('.section-surface').forEach(section => {
+					gsap.from(section, {
+						y: 40,
+						opacity: 0,
+						duration: 0.8,
+						scrollTrigger: {
+							trigger: section,
+							start: 'top 85%',
+							toggleActions: 'play none none none'
+						}
+					});
+				});
+
+				// Project Card Interactions
+				gsap.utils.toArray('.project').forEach(proj => {
+					// 3D Tilt
+					proj.addEventListener('mousemove', (e) => {
+						const rect = proj.getBoundingClientRect();
+						const x = (e.clientX - rect.left) / rect.width - 0.5;
+						const y = (e.clientY - rect.top) / rect.height - 0.5;
+						gsap.to(proj, {
+							rotateY: x * 10,
+							rotateX: -y * 10,
+							duration: 0.4,
+							ease: 'power2.out'
+						});
+					});
+
+					proj.addEventListener('mouseleave', () => {
+						gsap.to(proj, { rotateX: 0, rotateY: 0, duration: 0.6, ease: 'power2.out' });
+					});
+				});
+			}
+		}
+	}
 		
 });

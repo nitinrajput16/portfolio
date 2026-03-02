@@ -34,10 +34,19 @@
         <!-- Hero / Introduction -->
         <section class="hero container">
             <div class="hero-content">
+                <div class="eyebrow">
+                    <div class="badge"><span class="star" aria-hidden="true"></span><span>Available for Opportunities</span></div>
+                </div>
                 <h1>Hi, I'm Nitin Singh</h1>
-                <p class="lead">Full Stack Developer — I build clean, responsive, and interactive web applications.</p>
-                <p class="cta-row"><a class="btn" href="#projects">View My Work</a><a class="btn btn-outline"
-                        href="#resume">Download Resume</a></p>
+                <p class="lead">Software Engineer — Specializing in scalable full-stack applications and high-performance user experiences.</p>
+                <p class="cta-row">
+                    <a class="btn btn-primary" href="resumenitin.pdf" download>
+                        <i class="fa-solid fa-download"></i> Download Resume
+                    </a>
+                    <a class="btn btn-outline" href="#contact">
+                        <i class="fa-solid fa-envelope"></i> Contact Me
+                    </a>
+                </p>
             </div>
             <div class="hero-image" aria-hidden="true">
                 <img src="my_embedded.svg" alt="Profile illustration">
@@ -134,77 +143,105 @@
             <h2>Selected Projects</h2>
             <div class="project-grid">
                 <article class="project">
-                    <h3>Collaborative Code Editor</h3>
+                    <div class="project-header">
+                        <h3>Collaborative Code Editor</h3>
+                        <div class="project-tags">
+                            <span>Socket.io</span><span>Node.js</span><span>Monaco-editor</span><span>MongoDB</span>
+                        </div>
+                    </div>
                     <div class="project-summary">
-                        <span>Enabled multiple users to code, debug, and review projects simultaneously.</span>
+                        <span>Real-time collaborative coding platform supporting 2000+ daily active users.</span>
                         <button class="read-more-btn">Read More</button>
                     </div>
                     <div class="project-details" style="display:none;">
                         <p>
+                            • <strong>Achievement:</strong> Successfully scaled to handle 1000-2000 active users daily with high performance.<br>
                             • Enabled multiple users to code, debug, and review projects simultaneously with live synchronization.<br>
                             • Designed an efficient system for tracking changes, allowing users to revert to previous versions and merge edits seamlessly.<br>
-                            • Supports multiple programming languages with real-time compilation and execution.<br>
-                            • Tech stack: Socket.io, Node.js, Monaco-editor, MongoDB.
+                            • Supports multiple programming languages with real-time compilation and execution.
                         </p>
                         <button class="read-more-btn">Show Less</button>
-                        <p><a class="link" href="https://github.com/nitinrajput16/test.git">🔗 View on GitHub</a> • <a
-                                class="link" href="https://codeplat.onrender.com">🌐 Live Demo</a></p>
+                        <div class="project-links">
+                            <a class="link" href="https://github.com/nitinrajput16/test.git">🔗 GitHub</a>
+                            <a class="link" href="https://codeplat.onrender.com">🌐 Live Demo</a>
+                        </div>
                     </div>
                 </article>
 
                 <article class="project">
-                    <h3>Portfolio Website</h3>
+                    <div class="project-header">
+                        <h3>Exam Platform</h3>
+                        <div class="project-tags">
+                            <span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JavaScript</span>
+                        </div>
+                    </div>
                     <div class="project-summary">
-                        <span>Responsive and visually engaging personal portfolio to showcase projects and technical skills.</span>
+                        <span>Secure and scalable online exam system with real-time assessment and proctoring.</span>
                         <button class="read-more-btn">Read More</button>
                     </div>
                     <div class="project-details" style="display:none;">
                         <p>
+                            • <strong>Achievement:</strong> Implemented robust auto-evaluation and live monitoring supporting 1000+ simultaneous test-takers.<br>
+                            • Built a secure and scalable web platform for conducting online exams with real-time result generation.<br>
+                            • Added autosave, live monitoring for proctoring, and role-based access control (Admin/Teacher/Student).<br>
+                            • Designed an intuitive dashboard for performance analytics.
+                        </p>
+                        <button class="read-more-btn">Show Less</button>
+                        <div class="project-links">
+                            <a class="link" href="https://github.com/nitinrajput16/testplat.git">🔗 GitHub</a>
+                            <a class="link" href="https://testplat-8cjw.onrender.com">🌐 Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project-header">
+                        <h3>Portfolio Website</h3>
+                        <div class="project-tags">
+                            <span>GSAP</span><span>JavaScript</span><span>Node.js</span><span>CSS3</span>
+                        </div>
+                    </div>
+                    <div class="project-summary">
+                        <span>Visually engaging personal portfolio with high performance and interactive animations.</span>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                    <div class="project-details" style="display:none;">
+                        <p>
+                            • <strong>Achievement:</strong> Optimized for high performance and accessibility, featuring smooth GSAP animations.<br>
                             • Developed a responsive and visually engaging personal portfolio to showcase projects and technical skills.<br>
-                            • Implemented smooth scroll animations and interactive UI elements using GSAP for an enhanced user experience.<br>
-                            • Integrated backend with Node.js and Express.js to manage contact forms and project data efficiently.<br>
-                            • Deployed the website with Git and GitHub for version control and project management.<br>
-                            • Tech stack: HTML5, CSS3, JavaScript, Node.js, Express.js, MongoDB, GSAP, Git, GitHub.
+                            • Implemented smooth scroll animations and interactive UI elements for enhanced UX.<br>
+                            • Integrated backend with Node.js to manage contact forms and project data.
                         </p>
                         <button class="read-more-btn">Show Less</button>
-                        <p><a class="link" href="#">🔗 View on GitHub</a></p>
+                        <div class="project-links">
+                            <a class="link" href="#">🔗 GitHub</a>
+                        </div>
                     </div>
                 </article>
 
                 <article class="project">
-                    <h3>Exam Platform (Demo)</h3>
+                    <div class="project-header">
+                        <h3>LinkedIn Tango Game</h3>
+                        <div class="project-tags">
+                            <span>JS Canvas</span><span>HTML5</span><span>CSS3</span>
+                        </div>
+                    </div>
                     <div class="project-summary">
-                        <span>Secure and scalable web platform for online exams with real-time assessment.</span>
+                        <span>Interactive web-based game with real-time mechanics and responsive design.</span>
                         <button class="read-more-btn">Read More</button>
                     </div>
                     <div class="project-details" style="display:none;">
                         <p>
-                            • Built a secure and scalable web platform for conducting online exams with real-time assessment and result generation.<br>
-                            • Implemented question randomization, timer functionality, and automatic evaluation for objective-type tests.<br>
-                            • Added autosave during exams, live monitoring for proctoring, and role-based access control for admins, teachers, and students.<br>
-                            • Designed an intuitive dashboard for managing questions, results, and performance analytics.<br>
-                            • Tech Stack: Node.js, Express.js, MongoDB, HTML5, CSS3, JavaScript.
+                            • <strong>Achievement:</strong> Built with zero external game engines, using pure JS Canvas for high-performance rendering.<br>
+                            • Designed and developed an interactive web-based game with core mechanics involving collision detection.<br>
+                            • Implemented real-time score updates and keyboard controls.<br>
+                            • Focused on responsive design principles for seamless play across devices.
                         </p>
                         <button class="read-more-btn">Show Less</button>
-                        <p><a class="link" href="https://github.com/nitinrajput16/testplat.git">🔗 View on GitHub</a> • <a class="link" href="https://testplat-8cjw.onrender.com">🌐 Live Demo</a></p>
-                    </div>
-                </article>
-                <article class="project">
-                    <h3>LinkedIn Tango Game</h3>
-                    <div class="project-summary">
-                        <span>Interactive web-based game with keyboard controls and real-time score updates.</span>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                    <div class="project-details" style="display:none;">
-                        <p>
-                            • Designed and developed an interactive web-based game using HTML, CSS, and JavaScript.<br>
-                            • Built core game mechanics involving keyboard controls, collision detection, and real-time score updates.<br>
-                            • Implemented clean UI/UX for smooth user interaction and engaging gameplay.<br>
-                            • Focused on responsive design principles to ensure seamless play across devices.<br>
-                            • Tech stack: JS canvas, HTML, CSS.
-                        </p>
-                        <button class="read-more-btn">Show Less</button>
-                        <p><a class="link" href="https://github.com/nitinrajput16/tango.git">🔗 View on GitHub</a> • <a class="link" href="https://tango-o02w.onrender.com">🌐 Live Demo</a></p>
+                        <div class="project-links">
+                            <a class="link" href="https://github.com/nitinrajput16/tango.git">🔗 GitHub</a>
+                            <a class="link" href="https://tango-o02w.onrender.com">🌐 Live Demo</a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -241,12 +278,35 @@
 
         <!-- Contact -->
         <section id="contact" class="container section-surface contact">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, email me at: <i class="fa-brands fa-google"></i> <a href="mailto:nr750001@gmail.com">nr750001@gmail.com</a></p>
-            <p>LinkedIn: <i class="fa-brands fa-square-linkedin"></i><a href="https://www.linkedin.com/in/nitinrajput16/">LinkedIn</a></p>
-            <p>GitHub: <i class="fa-brands fa-github"></i><a href="https://github.com/nitinrajput16">GitHub</a></p>
-            <p>Leetcode: <img class="leetcode" src="https://img.icons8.com/?size=100&id=9L16NypUzu38&format=png&color=000000" alt=""></i><a href="https://leetcode.com/nitinrajput16/">Leetcode</a></p>
-            <p>WhatsApp: <i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/9760858044">9760858044</a></p>
+            <h2>Let's Connect</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fa-brands fa-google"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:nr750001@gmail.com">nr750001@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-brands fa-square-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/nitinrajput16/">nitinrajput16</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-brands fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/nitinrajput16">nitinrajput16</a></p>
+                </div>
+                <div class="contact-card">
+                    <img class="leetcode-icon" src="https://img.icons8.com/?size=100&id=9L16NypUzu38&format=png&color=000000" alt="">
+                    <h3>Leetcode</h3>
+                    <p><a href="https://leetcode.com/nitinrajput16/">nitinrajput16</a></p>
+                </div>
+            </div>
+            <div class="contact-footer">
+                <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+                <a class="btn btn-primary" href="https://wa.me/9760858044">
+                    <i class="fa-brands fa-whatsapp"></i> Message on WhatsApp
+                </a>
+            </div>
         </section>
     </main>
 
@@ -258,6 +318,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js" defer></script>
 </body>
