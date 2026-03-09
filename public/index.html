@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative 3D Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-orb"></div>
+      <div class="loader-text">
+        <span data-text="Loading">Loading</span>
+        <div class="loader-bar">
+          <div class="loader-bar-fill" id="loader-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <a href="#hero" class="logo-text">
+        <span class="logo-bracket">&lt;</span>Portfolio<span class="logo-bracket">/&gt;</span>
+      </a>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+      <a href="#about" class="nav-link" data-section="about">About</a>
+      <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+      <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+    </div>
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Side Social Links -->
+  <div class="side-social">
+    <a href="https://github.com/nitinrajput16" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/nitin-singh-3a6535292/" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/the_legends_143/?hl=en" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/919760858044" target="_blank" class="social-link" aria-label="Dribbble"><i class="fab fa-whatsapp"></i></a>
+    <div class="social-line"></div>
+  </div>
+
+  <!-- Email Side -->
+  <div class="side-email">
+    <a href="mailto:nr750001@gmail.com" class="email-link">nr750001@gmail.com</a>
+    <div class="social-line"></div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Hero Section -->
+    <section class="section hero-section" id="hero">
+      <div class="hero-content">
+        <div class="hero-greeting" data-animate="fade-up">
+          <span class="greeting-line"></span>
+          <span class="greeting-text">Hello, I'm</span>
+        </div>
+        <h1 class="hero-name" data-animate="fade-up" data-delay="100">
+          <span class="name-line">Nitin</span>
+          <span class="name-line accent">Singh</span>
+        </h1>
+        <p class="hero-tagline" data-animate="fade-up" data-delay="200">
+          I craft <span class="text-gradient">immersive digital experiences</span> that live at the intersection of
+          design and technology.
+        </p>
+        <div class="hero-cta" data-animate="fade-up" data-delay="300">
+          <a href="#projects" class="btn btn-primary">
+            <span>View My Work</span>
+            <div class="btn-glow"></div>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <span>Get In Touch</span>
+          </a>
+        </div>
+        <div class="hero-scroll" data-animate="fade-up" data-delay="400">
+          <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+          </div>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+      <div class="hero-3d" id="hero-3d-container"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+      <div class="section-container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-number">01.</span>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="about-grid">
+          <div class="about-image-wrapper" data-animate="fade-right">
+            <div class="about-image">
+              <div class="about-image-placeholder">
+                <i class="fas fa-user-astronaut"></i>
+              </div>
+              <div class="about-image-border"></div>
+              <div class="about-image-dots"></div>
+            </div>
+          </div>
+          <div class="about-text" data-animate="fade-left">
+            <p>
+              I'm a passionate <span class="text-accent">full-stack developer</span> and <span
+                class="text-accent">software engineer</span> who loves turning complex problems into simple,
+              beautiful, and intuitive experiences.
+            </p>
+            <p>
+              With a strong foundation in both front-end and back-end technologies, I specialize in building <span
+                class="text-accent">high-performance web applications</span> with stunning visual design and seamless
+              user interactions.
+            </p>
+            <p>
+              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or
+              experimenting with generative AI and building innovative solutions.
+            </p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number" data-count="5">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">Projects</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-count="1">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">Dev Years</span>
+              </div>
+              <!-- <div class="stat-item">
+                <span class="stat-number" data-count="30">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">Happy Clients</span>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+      <div class="section-container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-number">02.</span>
+          <h2 class="section-title">Skills & Tools</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="skills-orbit" id="skills-orbit" data-animate="fade-up">
+          <!-- 3D Skills orbit rendered here -->
+        </div>
+        <div class="skills-grid" data-animate="fade-up">
+          <div class="skill-category">
+            <h3 class="skill-category-title"><i class="fas fa-code"></i> Frontend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" data-level="95">HTML</span>
+              <span class="skill-tag" data-level="90">CSS</span>
+              <span class="skill-tag" data-level="92">JavaScript</span>
+              <!-- <span class="skill-tag" data-level="88">Three.js</span> -->
+              <!-- <span class="skill-tag" data-level="85">Vue.js</span> -->
+              <span class="skill-tag" data-level="90">Tailwind CSS</span>
+              <span class="skill-tag" data-level="80">GSAP</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3 class="skill-category-title"><i class="fas fa-server"></i> Backend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" data-level="90">Node.js</span>
+              <span class="skill-tag" data-level="85">Express</span>
+              <span class="skill-tag" data-level="82">Python</span>
+              <span class="skill-tag" data-level="78">Socket.IO</span>
+              <!-- <span class="skill-tag" data-level="80">PostgreSQL</span> -->
+              <span class="skill-tag" data-level="85">MongoDB</span>
+              <span class="skill-tag" data-level="75">Redis</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3 class="skill-category-title"><i class="fas fa-tools"></i> Tools & Others</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" data-level="88">Git</span>
+              <span class="skill-tag" data-level="80">Docker</span>
+              <!-- <span class="skill-tag" data-level="75">AWS</span> -->
+              <span class="skill-tag" data-level="82">Figma</span>
+              <span class="skill-tag" data-level="70">CI/CD</span>
+              <span class="skill-tag" data-level="78">WebGL</span>
+              <span class="skill-tag" data-level="85">REST APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+      <div class="section-container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-number">03.</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="projects-showcase">
+
+          <article class="project-card featured" data-animate="fade-up">
+            <div class="project-image">
+              <div class="project-image-placeholder gradient-1">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/nitinrajput16/test" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="https://codeplat.onrender.com" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-label">Featured Project</span>
+              <h3 class="project-title">Collaborative Code Editor</h3>
+              <div class="project-description">
+                <p>• Enabled multiple users to code, debug, and review projects simultaneously with live synchronization.<br>
+• Designed an efficient system for tracking changes, allowing users to revert to previous versions and merge edits seamlessly.<br>
+• Supports multiple programming languages with real-time compilation and execution.</p>
+              </div>
+              <div class="project-tech">
+                <span>Express.js</span><span>GSAP</span><span>MongoDB</span><span>Node.js</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card featured reverse" data-animate="fade-up">
+            <div class="project-image">
+              <div class="project-image-placeholder gradient-2">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/nitinrajput16/testplat" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="https://testplat-8cjw.onrender.com" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-label">Featured Project</span>
+              <h3 class="project-title">Educational Platform</h3>
+              <div class="project-description">
+                <p>Built a secure and scalable web platform for conducting online exams with real-time assessment and result generation.<br>
+• Implemented question randomization, timer functionality, and automatic evaluation for objective-type tests.<br>
+• Added autosave during exams, live monitoring for proctoring, and role-based access control for admins, teachers, and students.</p>
+              </div>
+              <div class="project-tech">
+                <span>Node.js</span><span>MongoDB</span><span>judge0API</span><span>WebSocket</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card featured" data-animate="fade-up">
+            <div class="project-image">
+              <div class="project-image-placeholder gradient-3">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/nitinrajput16/devlens" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="https://devlens-1-brzq.onrender.com" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-label">Featured Project</span>
+              <h3 class="project-title">AI skill gap detection</h3>
+              <div class="project-description">
+                <p>A machine learning-based solution for identifying skill gaps in employees and recommending personalized learning paths.<br>
+• Analyzed employee performance data and skill assessments from various sources to identify areas for improvement.<br>
+• Developed a recommendation engine that suggests relevant courses, projects, and job openings to help employees upskill effectively.
+                </p>
+              </div>
+              <div class="project-tech">
+                <span>React</span><span>python</span><span>ollama-API</span><span>GraphQL</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Other Projects Grid -->
+        <h3 class="other-projects-title" data-animate="fade-up">Other Noteworthy Projects</h3>
+        <div class="other-projects-grid">
+          <div class="mini-project-card" data-animate="fade-up" data-delay="0">
+            <div class="mini-project-top">
+              <i class="fas fa-folder-open"></i>
+              <div class="mini-project-links">
+                <a href="https://github.com/nitinrajput16/downloader"><i class="fab fa-github"></i></a>
+                <a href="https://downloader-m64w.onrender.com"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <h4>Web Downloader</h4>
+            <p>A simple yet powerful tool for downloading files from the web with progress tracking.
+              Can handle multiple videos extensions.</p>
+            <div class="mini-project-tech">
+              <span>decryption</span><span>ytdl-core</span><span>Node.js</span>
+            </div>
+          </div>
+          <div class="mini-project-card" data-animate="fade-up" data-delay="100">
+            <div class="mini-project-top">
+              <i class="fas fa-folder-open"></i>
+              <div class="mini-project-links">
+                <a href="https://github.com/nitinrajput16/code-execution"><i class="fab fa-github"></i></a>
+                <a href="#other-projects-grid"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <h4>Code Execution API</h4>
+            <p>API for executing code snippets in multiple programming languages with real-time output streaming and error handling.
+              Supports Python, JavaScript, and C++ with secure sandboxing.
+            </p>
+            <div class="mini-project-tech">
+              <span>monaco</span><span>judge0</span><span>MongoDB</span>
+            </div>
+          </div>
+          <div class="mini-project-card" data-animate="fade-up" data-delay="200">
+            <div class="mini-project-top">
+              <i class="fas fa-folder-open"></i>
+              <div class="mini-project-links">
+                <a href="https://github.com/nitinrajput16/showcaser"><i class="fab fa-github"></i></a>
+                <a href="https://showcaser.onrender.com"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <h4>Showcaser (web design)</h4>
+            <p>A responsive web application for showcasing creative work with smooth animations and a modern design.</p>
+            <div class="mini-project-tech">
+              <span>Node.js</span><span>React</span><span>CSS</span>
+            </div>
+          </div>
+          <!-- <div class="mini-project-card" data-animate="fade-up" data-delay="300">
+            <div class="mini-project-top">
+              <i class="fas fa-folder-open"></i>
+              <div class="mini-project-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div> -->
+            <!-- <h4>Music Visualizer</h4>
+            <p>Audio-reactive 3D visualizer that transforms music into mesmerizing visual experiences using Web Audio
+              API.</p>
+            <div class="mini-project-tech">
+              <span>Three.js</span><span>Web Audio</span><span>GLSL</span>
+            </div>
+          </div>
+          <div class="mini-project-card" data-animate="fade-up" data-delay="400">
+            <div class="mini-project-top">
+              <i class="fas fa-folder-open"></i>
+              <div class="mini-project-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <h4>CLI Task Manager</h4>
+            <p>A beautiful terminal-based project management tool with Kanban boards, time tracking, and Git
+              integration.</p>
+            <div class="mini-project-tech">
+              <span>Node.js</span><span>Ink</span><span>SQLite</span>
+            </div>
+          </div>
+          <div class="mini-project-card" data-animate="fade-up" data-delay="500">
+            <div class="mini-project-top">
+              <i class="fas fa-folder-open"></i>
+              <div class="mini-project-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <h4>AR Business Card</h4>
+            <p>Augmented reality business card that springs to life with 3D models, animations, and interactive
+              portfolio links.</p>
+            <div class="mini-project-tech">
+              <span>AR.js</span><span>Three.js</span><span>A-Frame</span>
+            </div>
+          </div> -->
+        <!-- </div> -->
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience-section" id="experience">
+      <div class="section-container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-number">04.</span>
+          <h2 class="section-title">Education</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="timeline" data-animate="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>BTech computer Science</h3>
+                <span class="timeline-company">@ Gl Bajaj Group of Institutions</span>
+              </div>
+              <span class="timeline-date">2022 — 2026 (Expected)</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Inter</h3>
+                <span class="timeline-company">@ Brilliant Public School</span>
+              </div>
+              <span class="timeline-date">2021 — 2022</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>High School</h3>
+                <span class="timeline-company">@ Brilliant Public School</span>
+              </div>
+              <span class="timeline-date">2019 — 2020</span>
+              <!-- <ul class="timeline-details">-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+      <div class="section-container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-number">05.</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="contact-content" data-animate="fade-up">
+          <p class="contact-intro">
+            I'm currently open to new opportunities and interesting projects.
+            Whether you have a question, a project idea, or just want to say hi — my inbox is always open!
+          </p>
+          <!-- Contact area: name + message + WhatsApp button -->
+          <div class="contact-form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" name="name" id="form-name" autocomplete="name" />
+                <label for="form-name">Your Name</label>
+                <div class="form-line"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea name="message" id="form-message" rows="4"></textarea>
+              <label for="form-message">Your Message</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-row">
+              <button id="wa-button" class="btn btn-primary btn-submit">
+                <span>Message on WhatsApp</span>
+                <i class="fab fa-whatsapp"></i>
+                <div class="btn-glow"></div>
+              </button>
+            </div>
+          </div>
+          <div class="contact-status" id="contact-status"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">Designed & Built with <span class="heart">&hearts;</span></p>
+      <p class="footer-copyright">&copy; 2026 Creative Developer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="/js/three-scene.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+
+</html>
